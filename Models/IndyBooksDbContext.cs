@@ -9,8 +9,7 @@ namespace IndyBooks.Models
 
         //TODO: Define DbSets for Collections representing all DB tables
         public DbSet<Book> Books { get; set; }
-
-
+        public DbSet<Writer> Writers { get; set; }
         
     }
 }

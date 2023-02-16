@@ -37,8 +37,7 @@ namespace IndyBooks.Controllers
             {
                 //TODO: Add Lamda method to include the Book's Author entity
                 foundBooks = foundBooks
-                             .Where(b=> b.Author.EndsWith(searchVM.Name))
-                             ;
+                             .Where(b=> b.Author.Name.EndsWith(searchVM.Name));
             }
             //Priced Between Search (min and max price entered)
             if (searchVM.Max > 0)
