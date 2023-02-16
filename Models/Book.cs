@@ -19,6 +19,6 @@ namespace IndyBooks.Models
         public decimal Price { get; set; }
 
         //TODO: Adjust properties according to ERD Diagram
-        public string Author { get; set; }
+        public Writer Author { get; set; }
     }
 }
