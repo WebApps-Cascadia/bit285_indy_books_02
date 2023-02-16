@@ -1,0 +1,55 @@
+﻿@model IndyBooks.ViewModels.SearchResultsVM
+@{
+    ViewBag.Title = "Admin Search";
+    Layout = "_Layout";
+}
+
+<h3>Search Result</h3>
+
+<!-- TODO: Update to use the new properties from the ERD-->
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            SKU
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+
+    @foreach (var book in Model.FoundBooks)
+    {
+        <tr>
+            <td>
+                @book.Title
+            </td>
+            <td>
+                <!-- TODO: add the book Author here-->
+                
+            </td>
+            <td class="rightedge">
+                @book.SKU
+            </td>
+            <td class="rightedge">
+                @String.Format("{0:C2}", @book.Price)
+            </td>
+        </tr>
+    }
+    @if (Model.HalfPriceSale)
+        { //TODO: Use an aggregate method to display the number of books for sale
+        <tr>
+            <td colspan="4" align="right">
+                <b>Number of half-price books:</b>
+                @Model.FoundBooks.Count(b => b.Price>0)
+            </td>
+        </tr>
+    }
+</table>
+
+
